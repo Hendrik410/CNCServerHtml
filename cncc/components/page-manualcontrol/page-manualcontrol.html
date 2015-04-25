@@ -1,0 +1,84 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+
+<polymer-element name="page-manualcontrol">
+    <template>
+        <style>
+            :host {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            font-size: 1.2rem;
+            font-weight: 300;
+            }
+            #mcControlls{
+                min-height: 250px;
+            }
+            #mcStats{
+                min-height: 250px;
+            }
+            #secMCStats{
+                padding: 20px;
+                
+            }
+            #sliderSpeed{
+                width: 130px;
+            }
+            #sliderDrill{
+                width: 130px;
+            }
+            #toggleDrill{
+                height: 44px;
+            }
+        </style>
+        
+        <table width="100%" border="1">
+            <tr flex>
+                <td width="50%">
+                    <div id="mcControlls">
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td><core-icon-button src="../../icons/arrowUp.png" onclick="rootManualControl.arrowControlClick(0)"></core-icon-button></td>
+                                <td><core-icon-button src="../../icons/upRight.png" onclick="rootManualControl.arrowControlClick(4)"></core-icon-button></td>
+                                <td><div layout horizontal center>
+                                    <div>Geschwindigkeit: </div>
+                                    <div><paper-slider id="sliderSpeed" role="slider" pin value="80"></paper-slider></div>
+                                </div></td>
+                            </tr>
+                            <tr>
+                                <td><core-icon-button src="../../icons/arrowLeft.png" onclick="rootManualControl.arrowControlClick(2)"></core-icon-button></td>
+                                <td></td>
+                                <td><core-icon-button src="../../icons/arrowRight.png" onclick="rootManualControl.arrowControlClick(3)"></core-icon-button></td>
+                                <td><div layout horizontal center>
+                                    <div style="width: 142px;">Laser: </div>
+                                    <div><paper-slider id="sliderDrill" role="slider" min="0" max="10" value="10" snaps pin></paper-slider></div>
+                                    <div><paper-button id="toggleDrill" onclick="rootManualControl.drillToggleClick()" raised>Off</paper-button></div>
+                                </div></td>
+                            </tr>
+                            <tr>
+                                <td><core-icon-button src="../../icons/fastForward.png" onclick="rootManualControl.continousMovementClick()" id="btnContinuousMovement"></core-icon-button></td>
+                                <td><core-icon-button src="../../icons/arrowDown.png" onclick="rootManualControl.arrowControlClick(1)"></core-icon-button></td>
+                                <td><core-icon-button src="../../icons/downRight.png" onclick="rootManualControl.arrowControlClick(5)"></core-icon-button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td width="50%">
+                    <template id="mcStats" bind="{{CNCStats}}">
+                        <section id="secMCStats">
+                            X: {{posX}}<br>
+                            Y: {{posY}}<br>
+                            Z: {{posZ}}<br>
+                            Laser: {{laser}}<br>
+                            ContinuousMovement: {{continuousMovement}}
+                        </section>
+                    </template>
+                </td>
+            </tr>
+        </table>
+        
+    </template>
+    <script src="page-manualcontrol.js"></script>
+    
+</polymer-element>

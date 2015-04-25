@@ -1,0 +1,20 @@
+body{
+    background-color: #E5E5E5;
+    -webkit-overflow-scrolling: touch;
+    font-family: 'RobotoDraft', sans-serif;
+}
+
+#TitleToolbar{
+    background-color: #19D119;
+    color: #FFFFFF;
+}
+
+paper-tabs{
+    background-color: #19D119;
+    color: #FFFFFF;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+}

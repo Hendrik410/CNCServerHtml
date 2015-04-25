@@ -1,0 +1,29 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="page-login">
+    <template>
+        <style>
+            :host {
+            position: relative;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            font-size: 1.2rem;
+            font-weight: 300;
+            }
+            section{
+                padding: 20px;
+            }
+        </style>
+        
+        <section>
+            <paper-input id="inpPassKey" label="PassKey" floatingLabel></paper-input>
+            <paper-button id="btnLogin" raised>Login</paper-button>
+        </section>
+        
+    </template>
+    <script src="page-login.js"></script>
+    
+</polymer-element>

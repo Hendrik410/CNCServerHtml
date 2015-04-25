@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/core-pages/core-pages.html">
+
+<link rel="import" href="../page-manualcontrol/page-manualcontrol.html">
+
+<polymer-element name="page-main">
+    <template>
+        <style>
+            :host {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            font-size: 1.2rem;
+            font-weight: 300;
+            }
+            section{
+                padding: 20px;
+            }
+        </style>
+        
+        <paper-tabs selected="{{SelectedPage}}" id="MainPageTabs">
+            <paper-tab>Manuelle Kontrolle</paper-tab>
+            <paper-tab>G-Code</paper-tab>
+            <paper-tab>Einstellungen</paper-tab>
+        </paper-tabs>
+        
+        <core-pages selected="{{SelectedPage}}">
+            <div><page-manualcontrol></page-manualcontrol></div>
+            <div>2</div>
+            <div>3</div>
+        </core-pages>
+        
+    </template>
+    <script src="page-main.js"></script>
+    
+</polymer-element>
