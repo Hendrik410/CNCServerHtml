@@ -3,6 +3,7 @@ var CNCStats;
 var drillToogle;
 var drillSpeed;
 var continuousMove;
+var movementSpeed;
 
 Polymer({
     ready: function(){
@@ -18,13 +19,14 @@ Polymer({
         drillToogle = document.getElementById("toggleDrill");
         drillSpeed = document.getElementById("sliderDrill");
         continuousMove = document.getElementById("btnContinuousMovement");
+        movementSpeed = document.getElementById("slideSpeed");
 
         rootManualControl.registerListeners();
     },
     
     registerListeners: function(){
         drillSpeed.addEventListener("change", rootManualControl.drillSpeedChange);
-
+        movementSpeed.addEventListener("change", rootManualControl.movementSpeedChange());
     },
 
     //id: 0=forward, 1=backward, 2=left, 3=right, 4=up, 5=down
@@ -64,5 +66,9 @@ Polymer({
         }
 
         ajaxRequest("/ajax", ["type", "continuousMovement"], ["0", CNCStats.continuousMovement], function(){});
+    },
+
+    movementSpeedChange: function(){
+        ajaxRequest("/ajax", ["type", "StepCount"], ["0", movementSpeed.value], function(){});
     }
 });
